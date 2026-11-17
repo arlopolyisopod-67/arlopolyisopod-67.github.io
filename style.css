@@ -1,0 +1,303 @@
+/* =========================
+   Variables
+========================= */
+
+:root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-hover: #f0f1f5;
+
+    --text: #20232a;
+    --text-muted: #737985;
+
+    --primary: #7967d8;
+    --primary-hover: #6552c4;
+
+    --border: #e4e6eb;
+
+    --radius: 12px;
+    --radius-sm: 7px;
+
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   Reset
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =========================
+   Typography
+========================= */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+p {
+    color: var(--text-muted);
+    margin: 0.75rem 0;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* =========================
+   Navigation
+========================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1rem 5%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+nav a {
+    font-weight: 600;
+}
+
+nav .links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* =========================
+   Main Content
+========================= */
+
+main {
+    width: min(1100px, 90%);
+    margin: 3rem auto;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+/* =========================
+   Cards
+========================= */
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.7rem 1.2rem;
+
+    background: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    font: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+button:active,
+.button:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+   Forms
+========================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+
+    font: inherit;
+    color: var(--text);
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* =========================
+   Images
+========================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+/* =========================
+   Lists
+========================= */
+
+ul, ol {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+li {
+    margin: 0.4rem 0;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    padding: 2rem 5%;
+    margin-top: 4rem;
+
+    text-align: center;
+    color: var(--text-muted);
+
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+/* =========================
+   Utilities
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin-inline: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 650px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    main {
+        margin: 2rem auto;
+    }
+}
+
+/* =========================
+   Dark Mode
+========================= */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #111318;
+        --surface: #191c23;
+        --surface-hover: #252934;
+
+        --text: #edf0f5;
+        --text-muted: #a0a6b2;
+
+        --primary: #a493ff;
+        --primary-hover: #b8aaff;
+
+        --border: #303541;
+
+        --shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+}
